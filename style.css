@@ -239,12 +239,12 @@ textarea:not([rows]) {
   margin-inline: auto;
 }
 
-.align-center-vertically{
+.align-center-vertically {
   align-items: center;
 }
 
 /* when in mobile view, put the button to right i.e (self.end) */
-@media(min-width: 50em){
+@media(min-width: 50em) {
   .on-right {
     justify-self: end;
   }
@@ -255,7 +255,8 @@ textarea:not([rows]) {
   gap: 1rem;
 }
 
-:where(.flow>:not(:first-child)){ /*works similar without where but the addition of where gives this selector tthe specificity of 0 so other rules can oberwrite it. */
+:where(.flow>:not(:first-child)) {
+  /*works similar without where but the addition of where gives this selector tthe specificity of 0 so other rules can oberwrite it. */
   margin-top: var(--flow-spacer, 3rem);
   /* if defined, then the value of --flow-spacer is used else 1em default */
   /* we define the flow spacer value in inline css, in html file */
@@ -268,7 +269,7 @@ textarea:not([rows]) {
   }
 
   .button-display-medium-inline-flex {
-    display:inline-flex;
+    display: inline-flex;
   }
 }
 
@@ -281,12 +282,13 @@ body {
   color: var(--clr-neutral-900)
 }
 
-p:not([class]) { /*for paragraphs not having the class attribute, i.e. not the simplify wala sentence*/
+p:not([class]) {
+  /*for paragraphs not having the class attribute, i.e. not the simplify wala sentence*/
   opacity: 0.7;
   max-width: 35ch;
 }
 
-p[data-width="wide-paragraph"]{
+p[data-width="wide-paragraph"] {
   max-width: 45ch;
 }
 
@@ -323,69 +325,70 @@ p[data-width="wide-paragraph"]{
 }
 
 /* -------------------------------- */
-.carousel{
+.carousel {
   width: 100%;
   text-align: center;
 }
 
-.carousel>h2::after{
-content: "";
-display: block;
-padding-block: var(--size-700);
-width: min(1400px, 100% - var(--size-700)*2);
-margin-inline: auto;
-height: 400px;
-background-color: var(--clr-accent-100);
+.carousel>h2::after {
+  content: "";
+  display: block;
+  padding-block: var(--size-700);
+  width: min(1400px, 100% - var(--size-700)*2);
+  margin-inline: auto;
+  height: 400px;
+  background-color: var(--clr-accent-100);
 }
+
 /* -------------------------------- */
 
-.visually-hidden{
-  position:absolute;
-  width:1px;
-  height:1px;
-  padding:0;
-  margin:-1px;
-  overflow:hidden;
-  clip: rect(0,0,0,0);
-  border:0;
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
   white-space: nowrap;
 }
 
-.primary-header{
+.primary-header {
   padding-top: var(--size-900);
   display: flex;
 }
 
-.nav-flex-wrapper{
+.nav-flex-wrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.mobile-nav-toggle{
-  display:none;
+.mobile-nav-toggle {
+  display: none;
 }
 
 /* common font size for both mobile and desktop version */
-.nav-list a{
+.nav-list a {
   text-decoration: none;
   font-size: var(--fs-nav);
 }
 
-.nav-list{
-  display: flex; /*desktop view ma */
+.nav-list {
+  display: flex;
+  /*desktop view ma */
   gap: clamp(var(--size-400), var(--size-500), var(--size-600))
-
 }
 
-.nav-list a{
+.nav-list a {
   text-decoration: none;
   font-weight: var(--fw-semi-bold);
   color: var(--clr-primary-400)
 }
 
 .nav-list a:hover,
-.nav-list a:focus{
+.nav-list a:focus {
   color: var(--clr-accent-400);
 }
 
@@ -394,24 +397,25 @@ background-color: var(--clr-accent-100);
 
 
 /* using the follwing two selectors to ba able to change oapcity as background-image alone doesn't allow changing opacity but psedo element does */
-.call-to-action{
-  position:relative;
-  isolation:isolate; /*cta creates a new stacking context i.e. isolates the background and prevents the background from mixing in with image */
+.call-to-action {
+  position: relative;
+  isolation: isolate;
+  /*cta creates a new stacking context i.e. isolates the background and prevents the background from mixing in with image */
   text-align: center;
 }
 
-@media(min-width: 50em){
+@media(min-width: 50em) {
 
-  .call-to-action{
+  .call-to-action {
     text-align: left;
   }
 
 }
 
-.call-to-action::before{
+.call-to-action::before {
   content: "";
-  position:absolute;
-  inset:0;
+  position: absolute;
+  inset: 0;
   background-image: url("./assets/images/bg-tablet-pattern.svg"), url("./assets/images/bg-tablet-pattern.svg");
   background-position: 5rem -8rem, 70rem -35rem;
   background-size: 45rem;
@@ -421,10 +425,10 @@ background-color: var(--clr-accent-100);
 
 /* not going mobile first here to avoid overwriting a lot of styles of mobile version */
 /* 50em or less ma hide primary-nav */
-@media (max-width:50em){
+@media (max-width:50em) {
 
-  .primary-navigation{
-    display:none;
+  .primary-navigation {
+    display: none;
 
     position: fixed;
 
@@ -440,174 +444,179 @@ background-color: var(--clr-accent-100);
     border-radius: var(--size-100);
     box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.3);
   }
-  
+
   /* drop shadow */
-  .primary-header[fullpage-gradient-overlay]::before{
+  .primary-header[fullpage-gradient-overlay]::before {
     content: "";
     position: fixed;
-    inset: 0; /* so that it takes whole page */
-    background-image: linear-gradient(rgba(0,0,0,0), rgb(0 0 0 / 0.8));
+    inset: 0;
+    /* so that it takes whole page */
+    background-image: linear-gradient(rgba(0, 0, 0, 0), rgb(0 0 0 / 0.8));
   }
 
-  .primary-navigation[toggled-as-visible]{
+  .primary-navigation[toggled-as-visible] {
     display: block;
+    z-index:1000;
   }
 
-  .nav-list{
+  .nav-list {
     text-align: center;
-    display:grid;  /*to utilize the gap property*/
+    display: grid;
+    /*to utilize the gap property*/
     gap: var(--size-300);
   }
 
   .mobile-nav-toggle {
-    display:block;
-    position:fixed;
+    z-index: 999;
+    display: block;
+    position: fixed;
     top: var(--size-800);
-    right:var(--size-400);
-    cursor:pointer;
+    right: var(--size-400);
+    cursor: pointer;
     background: transparent;
     border: 0;
     padding: 0.5rem;
   }
-  
-  .mobile-nav-toggle .icon-close{
-    display:none;
+
+  .mobile-nav-toggle .icon-close {
+    display: none;
   }
 
-  .button-display-small-none{
-    display:none ; /* this property is being overwritten somewhere below, could turn it into id, could bring it to the lowest of the cascadeSS file or just mark important as I did here */
-  
+  .button-display-small-none {
+    display: none;
+    /* this property is being overwritten somewhere below, could turn it into id, could bring it to the lowest of the cascadeSS file or just mark important as I did here */
+
   }
 
 }
 
-.footer-nav{
-  columns:2;
+.footer-nav {
+  columns: 2;
   /* margin: auto; */
 }
 
-.footer-nav a{
+.footer-nav a {
   color: var(--clr-neutral-100);
   text-decoration: none;
 }
 
-.footer-nav a:is(:hover, :focus){
+.footer-nav a:is(:hover, :focus) {
   color: var(--clr-accent-400);
 }
 
-.social-links{
+.social-links {
   display: flex;
   gap: var(--size-500);
 }
 
-.social-icon{
+.social-icon {
   width: var(--size-800);
-  fill:var(--clr-neutral-100);
-  aspect-ratio:1;
+  fill: var(--clr-neutral-100);
+  aspect-ratio: 1;
 }
 
-.social-icon:is(:hover, :focus-visible){
-  fill:var(--clr-accent-400);
+.social-icon:is(:hover, :focus-visible) {
+  fill: var(--clr-accent-400);
 }
 
-@media (min-width:50em){
+@media (min-width:50em) {
   .social-icon {
     width: var(--size-500);
   }
 
-  .social-links{
+  .social-links {
     display: flex;
     gap: var(--size-400);
   }
 
 }
 
-.primary-footer{
+.primary-footer {
   --logo-color: var(--clr-neutral-100);
 }
 
 
-.footer-flex-wrapper{
+/* footer-nav order fixing */
+.footer-flex-wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: auto auto;
   justify-content: space-around;
 }
 
-.footer-flex-wrapper .row1{   
+.footer-flex-wrapper .row1 {
   grid-column: 1;
-  grid-row:1;
+  grid-row: 1;
 }
 
-.footer-flex-wrapper.row2{
+.footer-flex-wrapper.row2 {
   grid-column: 2;
-  grid-row:2;
+  grid-row: 2;
 }
 
-.footer-flex-wrapper .footer-col2-item{
-  grid-column:2;
+.footer-flex-wrapper .footer-col2-item {
+  grid-column: 2;
   grid-row: 1 / span 2;
 }
 
-.footer-flex-wrapper .col3-row1{
-  grid-column:3;
-  grid-row:1;
+.footer-flex-wrapper .col3-row1 {
+  grid-column: 3;
+  grid-row: 1;
 
 }
 
-.footer-flex-wrapper .col3-row1 > form{
-  display:flex;
-  gap:1em;
-  
-}
-
-.footer-flex-wrapper .col3-row2{
-  grid-row:2;
-  grid-column:3;
-}
-
-
-@media(max-width: 50em){
-  .footer-flex-wrapper{
-      grid-template-columns: 1fr;
-      grid-auto-flow: column;
-      justify-items: center;
-      gap:3.5rem;
-  }
-
-  .footer-flex-wrapper .row1{   
-      grid-column: 1;
-      grid-row:4;
-      /* order:4; */
-  }
-  .footer-flex-wrapper.row2{
-      /* order: 3; */
-      grid-column: 1;
-      grid-row:3;
-  }
-  .footer-flex-wrapper .footer-col2-item{
-      /* order:2;  */
-      grid-column:1;
-      grid-row: 2;
-  }
-  .footer-flex-wrapper .col3-row1{
-      /* order: 1; */
-      grid-row:1;
-      grid-column:1;
-      
-  }
-
-  .footer-flex-wrapper .col3-row2{
-      grid-row:5;
-      grid-column:1;
-      /* order: 5; */
-      
-  }
+.footer-flex-wrapper .col3-row1>form {
+  display: flex;
+  gap: 1em;
 
 }
 
+.footer-flex-wrapper .col3-row2 {
+  grid-row: 2;
+  grid-column: 3;
+}
 
-/* .opened{
-  display: block;
-  position: fixed;
-} */
+
+@media(max-width: 50em) {
+  .footer-flex-wrapper {
+    grid-template-columns: 1fr;
+    grid-auto-flow: column;
+    justify-items: center;
+    gap: 3.5rem;
+  }
+
+  .footer-flex-wrapper .row1 {
+    grid-column: 1;
+    grid-row: 4;
+    /* order:4; */
+  }
+
+  .footer-flex-wrapper.row2 {
+    /* order: 3; */
+    grid-column: 1;
+    grid-row: 3;
+  }
+
+  .footer-flex-wrapper .footer-col2-item {
+    /* order:2;  */
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .footer-flex-wrapper .col3-row1 {
+    /* order: 1; */
+    grid-row: 1;
+    grid-column: 1;
+
+  }
+
+  .footer-flex-wrapper .col3-row2 {
+    grid-row: 5;
+    grid-column: 1;
+    /* order: 5; */
+
+  }
+
+}
+
+/* ---------- */

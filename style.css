@@ -429,7 +429,6 @@ p[data-width="wide-paragraph"] {
 
   .primary-navigation {
     display: none;
-
     position: fixed;
 
     padding: var(--size-700);
@@ -456,7 +455,7 @@ p[data-width="wide-paragraph"] {
 
   .primary-navigation[toggled-as-visible] {
     display: block;
-    z-index:1000;
+    z-index: 1000;
   }
 
   .nav-list {
@@ -537,6 +536,14 @@ p[data-width="wide-paragraph"] {
 
 
 /* footer-nav order fixing */
+
+input:where([type="text"], [type="email"]) {
+  border: 0;
+  border-radius: 100vmax;
+  padding: var(--size-300) var(--size-400);
+}
+
+
 .footer-flex-wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -620,3 +627,60 @@ p[data-width="wide-paragraph"] {
 }
 
 /* ---------- */
+
+/* numbered lists */
+
+.numbered-items {
+  counter-reset: count;
+}
+
+.numbered-items li {
+  counter-increment: count;
+}
+
+/*,mobile first: bringing the list marker (tag) and the heading together to same row */
+.numbered-items div {
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  /*min content for the first cell to cover only the list mark, and the rest to cover the remaining; */
+  align-items: center;
+  column-gap: var(--size-300);
+
+  position: relative;
+  /*for absolute positioning of the before pseudoelement i.e the light colour behind the title */
+}
+
+.numbered-items__body {
+  grid-column: 1 / -1;
+}
+
+.numbered-items div::before {
+  content: "0" counter(count);
+  color: var(--clr-neutral-100);
+  background-color: var(--clr-accent-400);
+  padding: var(--size-200) var(--size-600);
+  border-radius: 100vmax;
+}
+
+/* brings the light colour behind the title cell only */
+/* .numbered-items .numbered-items__title {
+  background:var(--clr-accent-100);  
+} */
+
+/*brings to jaha chaiyekod design anusar tehi */
+.numbered-items__title::before {
+  content: "";
+  position: absolute;
+  inset: 0 -100vw 0 0;
+  grid-column: 1 / -1;
+  grid-row: 1 / 2;
+  border-radius: 100vmax;
+  z-index: -1;
+  background: var(--clr-accent-100);
+}
+
+@media(min-width: 40em) {
+  .numbered-items__body {
+    grid-column: 2 / -1;
+  }
+}

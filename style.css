@@ -234,7 +234,8 @@ textarea:not([rows]) {
 .container {
   --max-width: 1110px;
   --padding: 1rem;
-  overflow: hidden; /*added in self attempt to fix hiding of hambuyrger*/
+  overflow: hidden;
+  /*added in self attempt to fix hiding of hambuyrger*/
 
   width: min(var(--max-width), 100% - var(--padding)*2);
   margin-inline: auto;
@@ -662,25 +663,30 @@ input:where([type="text"], [type="email"]) {
   border-radius: 100vmax;
 }
 
-/* brings the light colour behind the title cell only */
-/* .numbered-items .numbered-items__title {
-  background:var(--clr-accent-100);  
-} */
 
-/*brings to jaha chaiyekod design anusar tehi */
-.numbered-items__title::before {
-  content: "";
-  position: absolute;
-  inset: 0 -1000px 0 0;
-  grid-column: 1 / -1;
-  grid-row: 1 / 2;
-  border-radius: 100vmax;
-  z-index: -1;
-  background: var(--clr-accent-100);
+
+@media(max-width: 40em) {
+  .numbered-items div::after {
+    content: "";
+    position: absolute;
+    inset: 0 -1000px 0 0;
+    grid-column: 1 / -1;
+    grid-row: 1 / 2;
+    border-radius: 100vmax;
+    z-index: -1;
+    background: var(--clr-accent-100);
+  }
 }
+
 
 @media(min-width: 40em) {
   .numbered-items__body {
     grid-column: 2 / -1;
+  }
+}
+
+@media(max-width: 40em) {
+  .numbered-items__body {
+    grid-column: 1 / -1;
   }
 }

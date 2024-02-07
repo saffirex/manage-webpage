@@ -231,12 +231,18 @@ textarea:not([rows]) {
   padding-block: var(--size-900);
 }
 
+.margin-bottom-700{
+  margin-block-end: var(--size-700);
+}
+
+
 .container {
   --max-width: 1110px;
   --padding: 1rem;
-  overflow: hidden;
+ 
   /*added in self attempt to fix hiding of hambuyrger*/
-
+  overflow: hidden;
+  
   width: min(var(--max-width), 100% - var(--padding)*2);
   margin-inline: auto;
 }
@@ -264,6 +270,25 @@ textarea:not([rows]) {
   /* we define the flow spacer value in inline css, in html file */
 }
 
+.text-center { /*for headings like 'whats different' */
+  text-align: center;
+}
+
+.text-center p{ /*for centent inside heading */
+  margin-inline: auto;
+}
+
+
+@media(max-width: 50em){
+.text-center-small-only{
+  text-align: center;
+}
+.text-center-small-only p{ /*for centent inside heading */
+  margin-inline: auto;
+}
+}
+
+
 @media (min-width: 50em) {
   .even-columns {
     grid-auto-flow: column;
@@ -287,7 +312,7 @@ body {
 p:not([class]) {
   /*for paragraphs not having the class attribute, i.e. not the simplify wala sentence*/
   opacity: 0.7;
-  max-width: 35ch;
+  max-width: 35ch; /*yo haalyo bhane, if you set text-align:center to parent div, this p will be centered but will stick to the left as text-align center aligns text and not block elements*/
 }
 
 p[data-width="wide-paragraph"] {
@@ -633,6 +658,8 @@ input:where([type="text"], [type="email"]) {
 
 .numbered-items {
   counter-reset: count;
+  width: fit-content;
+  margin-inline: auto;
 }
 
 .numbered-items li {
@@ -675,6 +702,7 @@ input:where([type="text"], [type="email"]) {
     border-radius: 100vmax;
     z-index: -1;
     background: var(--clr-accent-100);
+
   }
 }
 

@@ -26,3 +26,5 @@ dist-ssr
 # custom files
 
 emaills.txt
+test*.html
+test*.css

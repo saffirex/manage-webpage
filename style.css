@@ -234,6 +234,7 @@ textarea:not([rows]) {
 .container {
   --max-width: 1110px;
   --padding: 1rem;
+  overflow: hidden; /*added in self attempt to fix hiding of hambuyrger*/
 
   width: min(var(--max-width), 100% - var(--padding)*2);
   margin-inline: auto;
@@ -469,6 +470,7 @@ p[data-width="wide-paragraph"] {
     z-index: 999;
     display: block;
     position: fixed;
+    /* try  */
     top: var(--size-800);
     right: var(--size-400);
     cursor: pointer;
@@ -483,8 +485,6 @@ p[data-width="wide-paragraph"] {
 
   .button-display-small-none {
     display: none;
-    /* this property is being overwritten somewhere below, could turn it into id, could bring it to the lowest of the cascadeSS file or just mark important as I did here */
-
   }
 
 }
@@ -671,7 +671,7 @@ input:where([type="text"], [type="email"]) {
 .numbered-items__title::before {
   content: "";
   position: absolute;
-  inset: 0 -100vw 0 0;
+  inset: 0 -1000px 0 0;
   grid-column: 1 / -1;
   grid-row: 1 / 2;
   border-radius: 100vmax;

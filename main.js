@@ -4,8 +4,9 @@ const slider = new A11YSlider(document.querySelector('.slider'), {
     autoplay: true,
     adaptiveHeight: false,
     slidesToShow: 1,
-    arrows: false, // arrows enabled 767px and down
+    arrows: false,
     dots: true,
+
     responsive: {
         850: {
             slidesToShow: 3,

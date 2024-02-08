@@ -793,4 +793,22 @@ input:where([type="text"], [type="email"]) {
   }
 }
 
+/*----------------------------- blobs----------------------*/
 
+/* .image-with-blob-bg{
+  
+}
+
+.image-with-blob-bg::before{
+content:"";
+border: 1px solid red;
+position: absolute;
+z-index:-1;
+right:-50%;
+top:-20%;
+width:100%;
+aspect-ratio:1.2;
+background-image: url("./assets/images/bg-tablet-pattern.svg");
+background-position:bottom left;
+background-repeat: no-repeat;
+} */

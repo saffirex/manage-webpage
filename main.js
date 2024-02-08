@@ -1,5 +1,20 @@
+const slider = new A11YSlider(document.querySelector('.slider'), {
+    // adaptiveHeight: false,
+    // dots: false,
+    autoplay: true,
+    adaptiveHeight: false,
+    slidesToShow: 1,
+    arrows: false, // arrows enabled 767px and down
+    dots: true,
+    responsive: {
+        850: {
+            slidesToShow: 3,
+        }
+    }
+});
+
 const navToggle = document.querySelector(".mobile-nav-toggle");
-const primaryNav= document.querySelector(".primary-navigation");
+const primaryNav = document.querySelector(".primary-navigation");
 
 const primaryHeader = document.querySelector(".primary-header");
 // navToggle.addEventListener('click', ()=>{
@@ -8,8 +23,8 @@ const primaryHeader = document.querySelector(".primary-header");
 
 // primaryNav ko classlist ma opened bhanni class thapdinxa so the opened property of css applies there. would work with around line 365 ko .opened property in css file
 
-navToggle.addEventListener('click', ()=>{
+navToggle.addEventListener('click', () => {
     primaryNav.toggleAttribute("toggled-as-visible");
-    primaryNav.hasAttribute("toggled-as-visible")? navToggle.setAttribute("aria-expanded", true) : navToggle.setAttribute("aria-expanded",false);
+    primaryNav.hasAttribute("toggled-as-visible") ? navToggle.setAttribute("aria-expanded", true) : navToggle.setAttribute("aria-expanded", false);
     primaryHeader.toggleAttribute('fullpage-gradient-overlay');
 })

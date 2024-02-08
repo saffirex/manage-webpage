@@ -4,11 +4,13 @@
   --clr-primary-400: hsl(228, 39%, 23%);
 
   --clr-accent-100: hsl(13, 100%, 96%);
+  --clr-accent-200: hsl(11, 88%, 91%);
   --clr-accent-300: hsl(12, 88%, 75%);
   --clr-accent-400: hsl(12, 88%, 59%);
   --clr-accent-500: hsl(12, 60%, 50%);
 
   --clr-neutral-100: hsl(0, 0%, 100%);
+  --clr-neutral-200: hsl(0, 0%, 97%);
   --clr-neutral-900: hsl(232, 12%, 13%);
 
   --ff-primary: 'Be Vietnam Pro', sans-serif;
@@ -352,7 +354,7 @@ p[data-width="wide-paragraph"] {
 }
 
 /* -------------------------------- */
-.carousel {
+/* .carousel {
   width: 100%;
   text-align: center;
 }
@@ -365,8 +367,80 @@ p[data-width="wide-paragraph"] {
   margin-inline: auto;
   height: 400px;
   background-color: var(--clr-accent-100);
+} */
+/* 
+.slider-container{
+  width:100%;
+  margin-inline: auto;
+} */
+
+.slider {
+  display: flex;
+  gap: var(--size-600);
+  list-style-type: none;
+  padding-block:var(--size-800);
 }
 
+.slider > * {
+  position: relative;
+  padding: var(--size-900) var(--size-800) var(--size-800);
+  background-color: var(--clr-neutral-200);
+  border-radius: var(--size-300);
+}
+
+.slider img{
+  width: 4.2rem;
+  position: absolute;
+  inset:0;
+  margin-inline: auto;
+  top: 0;
+  transform: translateY(-50%);
+}
+
+.a11y-slider-autoplay{
+  display:none !important;
+}
+
+.a11y-slider-container{
+  margin-block: var(--size-700);
+}
+
+/* tala ko 3 copied*/
+
+.a11y-slider-dots {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -ms-flex-align: center;
+  align-items: center;
+  list-style: none;
+  gap: var(--size-100);
+  padding: 0;
+}
+
+.a11y-slider-dots li {
+  display: block;
+  width: 12px;
+  height: 12px;
+  padding: 0;
+  margin: 0 6px;
+}
+
+.a11y-slider-dots li button {
+  display: block;
+  font-size: 0;
+  text-indent: -9999px;
+  border: 1px solid var(--clr-accent-400)!important;
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  background: var(--clr-accent-200);
+}
+
+.a11y-slider-dots li button.active {
+  background: var(--clr-accent-400);
+}
 /* -------------------------------- */
 
 .visually-hidden {
@@ -718,3 +792,5 @@ input:where([type="text"], [type="email"]) {
     grid-column: 1 / -1;
   }
 }
+
+

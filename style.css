@@ -233,7 +233,7 @@ textarea:not([rows]) {
   padding-block: var(--size-900);
 }
 
-.margin-bottom-700{
+.margin-bottom-700 {
   margin-block-end: var(--size-700);
 }
 
@@ -241,10 +241,10 @@ textarea:not([rows]) {
 .container {
   --max-width: 1110px;
   --padding: 1rem;
- 
+
   /*added in self attempt to fix hiding of hambuyrger*/
   overflow: hidden;
-  
+
   width: min(var(--max-width), 100% - var(--padding)*2);
   margin-inline: auto;
 }
@@ -272,22 +272,26 @@ textarea:not([rows]) {
   /* we define the flow spacer value in inline css, in html file */
 }
 
-.text-center { /*for headings like 'whats different' */
+.text-center {
+  /*for headings like 'whats different' */
   text-align: center;
 }
 
-.text-center p{ /*for centent inside heading */
+.text-center p {
+  /*for centent inside heading */
   margin-inline: auto;
 }
 
 
-@media(max-width: 50em){
-.text-center-small-only{
-  text-align: center;
-}
-.text-center-small-only p{ /*for centent inside heading */
-  margin-inline: auto;
-}
+@media(max-width: 50em) {
+  .text-center-small-only {
+    text-align: center;
+  }
+
+  .text-center-small-only p {
+    /*for centent inside heading */
+    margin-inline: auto;
+  }
 }
 
 
@@ -309,13 +313,14 @@ body {
   font-size: var(--fs-body);
   font-family: var(--ff-body);
   color: var(--clr-neutral-900);
-  overflow-x: hidden;
+  overflow-x: hidden ;
 }
 
 p:not([class]) {
   /*for paragraphs not having the class attribute, i.e. not the simplify wala sentence*/
   opacity: 0.7;
-  max-width: 35ch; /*yo haalyo bhane, if you set text-align:center to parent div, this p will be centered but will stick to the left as text-align center aligns text and not block elements*/
+  max-width: 35ch;
+  /*yo haalyo bhane, if you set text-align:center to parent div, this p will be centered but will stick to the left as text-align center aligns text and not block elements*/
 }
 
 p[data-width="wide-paragraph"] {
@@ -379,30 +384,30 @@ p[data-width="wide-paragraph"] {
   display: flex;
   gap: var(--size-600);
   list-style-type: none;
-  padding-block:var(--size-800);
+  padding-block: var(--size-800);
 }
 
-.slider > * {
+.slider>* {
   position: relative;
   padding: var(--size-900) var(--size-800) var(--size-800);
   background-color: var(--clr-neutral-200);
   border-radius: var(--size-300);
 }
 
-.slider img{
+.slider img {
   width: 4.2rem;
   position: absolute;
-  inset:0;
+  inset: 0;
   margin-inline: auto;
   top: 0;
   transform: translateY(-50%);
 }
 
-.a11y-slider-autoplay{
-  display:none !important;
+.a11y-slider-autoplay {
+  display: none !important;
 }
 
-.a11y-slider-container{
+.a11y-slider-container {
   margin-block: var(--size-800);
 }
 
@@ -432,7 +437,7 @@ p[data-width="wide-paragraph"] {
   display: block;
   font-size: 0;
   text-indent: -9999px;
-  border: 1px solid var(--clr-accent-400)!important;
+  border: 1px solid var(--clr-accent-400) !important;
   width: 100%;
   height: 100%;
   border-radius: 100%;
@@ -442,6 +447,7 @@ p[data-width="wide-paragraph"] {
 .a11y-slider-dots li button.active {
   background: var(--clr-accent-400);
 }
+
 /* -------------------------------- */
 
 .visually-hidden {
@@ -530,8 +536,8 @@ p[data-width="wide-paragraph"] {
 @media (max-width:50em) {
 
 
-  .primary-header[fullpage-gradient-overlay]{
-    position:relative;
+  .primary-header[fullpage-gradient-overlay] {
+    position: relative;
     z-index: 1000;
   }
 
@@ -578,21 +584,35 @@ p[data-width="wide-paragraph"] {
     display: block;
     position: fixed;
     /* try  */
-    top: var(--size-800);
+    top: var(--size-900);
     right: var(--size-400);
     cursor: pointer;
     background: transparent;
     border: 0;
-    padding: 0.5rem;
-  }
-
-  .mobile-nav-toggle .icon-close {
-    display: none;
+    padding: var(--size-400);
+    background-image: url("./assets/images/icon-hamburger.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
   }
 
   .button-display-small-none {
     display: none;
   }
+
+  /*using the aria-expanded attribute to see if the navmenu is closed or open
+  because we have already written the code for toggling it in js
+  */
+  .mobile-nav-toggle[aria-expanded="true"] {
+    background-image: url("./assets/images/icon-close.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  /* .mobile-nav-toggle[aria-expanded="false"]{
+    background-image: url("./assets/images/icon-hamburger.svg");
+  } */
 
 }
 
@@ -634,7 +654,6 @@ p[data-width="wide-paragraph"] {
     display: flex;
     gap: var(--size-400);
   }
-
 }
 
 .primary-footer {
@@ -801,41 +820,69 @@ input:where([type="text"], [type="email"]) {
 }
 
 /*----------------------------- blobs----------------------*/
-.hero__image{
+.graph-img-attached-with-blob {
   justify-self: center;
+}
+
+/* changing the position, i.e the order for mobile view */
+@media(max-width:50em) {
+  .graph-img-attached-with-blob {
+    order: -1;
+  }
+}
+
+.graph-img-attached-with-blob::before {
+  content: "";
+  /* border: 1px solid red; */
+  position: absolute;
+  z-index: -10;
+  right: 0;
+  top: 0;
+  width: 90%;
+  max-height: 120vh;
+  aspect-ratio: 1;
+  background-image: url("./assets/images/bg-tablet-pattern.svg");
+  background-position: bottom left;
+  background-repeat: no-repeat;
   
 }
 
-@media(max-width:50em)
-{.hero__image{
-  order:-1;
-}
-}
+/*changing the position for desktop view*/
+@media(min-width:50em) {
+  .graph-img-attached-with-blob::before {
 
-.hero__image::before{
-content:"";
-/* border: 1px solid red; */
-position: absolute;
-z-index:-10;
-right:0;
-top:0;
-width:90%;
-max-height: 120vh;
-aspect-ratio:1;
-background-image: url("./assets/images/bg-tablet-pattern.svg");
-background-position:bottom left;
-background-repeat: no-repeat;
-}
-
-@media(min-width:50em){
-  .hero__image::before{
-    background-clip: border-box;
     right: -10%;
-    top:-10%;
+    top: -10%;
     max-height: 80vh;
-    width:45%;
-    
-    }
-    
+    width: 45%;
+  }
+}
 
+.whats-section-attached-with-blob {
+  position: relative;
+}
+
+.whats-section-attached-with-blob::before {
+  content: url("./assets/images/bg-tablet-pattern.svg");
+  /* border: 1px solid red; */
+  position: absolute;
+  z-index: -10;
+  left: 70%;
+  bottom: 80%;
+  width: 30%;
+  zoom: 60%;
+  overflow: hidden;
+}
+
+@media(min-width:50em) {
+  .whats-section-attached-with-blob::before {
+    /* border: 1px solid red; */
+    position: absolute;
+    z-index: -10;
+    left: -20rem;
+    bottom: -30em;
+   
+    zoom: 100%;
+    overflow: visible;
+  }
 }

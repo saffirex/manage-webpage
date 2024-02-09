@@ -529,6 +529,12 @@ p[data-width="wide-paragraph"] {
 /* 50em or less ma hide primary-nav */
 @media (max-width:50em) {
 
+
+  .primary-header[fullpage-gradient-overlay]{
+    position:relative;
+    z-index: 1000;
+  }
+
   .primary-navigation {
     display: none;
     position: fixed;
@@ -539,7 +545,7 @@ p[data-width="wide-paragraph"] {
     bottom: auto;
     left: var(--size-400);
     max-width: 30rem;
-    margin-left: auto;
+    margin-inline: auto;
 
     background: var(--clr-neutral-100);
     border-radius: var(--size-100);
@@ -557,7 +563,7 @@ p[data-width="wide-paragraph"] {
 
   .primary-navigation[toggled-as-visible] {
     display: block;
-    z-index: 1000;
+
   }
 
   .nav-list {
